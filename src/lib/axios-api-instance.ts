@@ -32,18 +32,11 @@ const getSessionTokens = () => {
   }
 };
 
-export const setupAxiosInterceptors = (host: any) => {
+export const setupAxiosInterceptors = () => {
   axiosAPIInstance.interceptors.request.use(
     async (
       config: InternalAxiosRequestConfig
     ): Promise<InternalAxiosRequestConfig> => {
-      const token = await getSessionTokens(host);
-      if (config.headers instanceof Headers) {
-        config.headers.set("Authorization", `${token}`);
-      } else {
-        config.headers = config.headers || {};
-        config.headers["Authorization"] = `${token}`;
-      }
       return config;
     },
     (error) => {

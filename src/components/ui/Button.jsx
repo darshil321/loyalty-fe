@@ -37,6 +37,7 @@ const buttonVariants = cva(
 );
 
 const Button = React.forwardRef(
+  // eslint-disable-next-line react/prop-types
   ({ className, variant, size, asChild = false, ...props }, ref) => {
     const Comp = asChild ? "slot" : "button";
     return (
