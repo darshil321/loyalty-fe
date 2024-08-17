@@ -1,9 +1,9 @@
 import { post } from "../../lib/axios-api-instance";
 import { logger } from "../../lib/logger";
 
-export const createCouponAPI = async (value: number) => {
+export const createCouponAPI = async (value) => {
   const couponData = {
-    value,
+    ...value,
     typeOfDiscount: "fixed_amount",
   };
   try {
