@@ -8,7 +8,7 @@ const RedeemPointsView = ({ couponCode, onBack, loading }) => {
     try {
       await navigator.clipboard.writeText(couponCode);
       setCopied(true);
-      setTimeout(() => setCopied(false), 2000); // Reset copied state after 2 seconds
+      setTimeout(() => setCopied(false), 2000);
     } catch (err) {
       console.error("Failed to copy text: ", err);
     }

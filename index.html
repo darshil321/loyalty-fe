@@ -8,6 +8,12 @@
   </head>
   <body>
     <div id="root"></div>
+    <div id="logo-search-heading"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
+  <script>
+    document.querySelectorAll('.abcd').forEach(function(element) {
+    element.insertAdjacentHTML('beforeend', '<p>Hello</p>');
+});
+  </script>
 </html>

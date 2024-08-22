@@ -7,8 +7,9 @@ const SignUpView = ({ onSignUp, handleViewChange }) => {
     <div className="rounded-t-xl bg-white p-4">
       <div className="flex flex-col items-center justify-center">
         <p className="text-center text-sm text-black">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat sequi
-          minima sunt, aspernatur aperiam dignissimos necessitatibus
+          We are thrilled to be able offer a reward program that shows our
+          customers what they mean to us! Join today to earn points and redeem
+          them at checkout!
         </p>
         <Button
           className="mt-2 bg-orange-300 text-white"
@@ -28,7 +29,7 @@ const SignUpView = ({ onSignUp, handleViewChange }) => {
             <WalletIcon className="h-5 w-5 text-[#d3c39b]" />
             <span>My Balance</span>
           </span>
-          <ChevronRightIcon className="h-5 w-5" />
+          <ChevronRightIcon className="h-5 w-5 text-green-300" />
         </Button>
         <Button
           variant="outline"

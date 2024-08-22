@@ -46,7 +46,7 @@ const RedeemPointsOptionsView = ({
         </p>
         <p className="text-sm text-muted-foreground">
           get {event.points}{" "}
-          {event.spendingType === "fixed" ? "points" : "% percentage"} off
+          {event.spendingType === "FIXED" ? "points" : "% percentage"} off
         </p>
       </div>
       <Button
@@ -58,7 +58,6 @@ const RedeemPointsOptionsView = ({
       </Button>
     </div>
   );
-
   const renderEvents = () => {
     const redeemableEvents =
       userData?.events?.filter((event) => event.type === "DEBIT") || [];

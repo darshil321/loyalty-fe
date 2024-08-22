@@ -11,7 +11,7 @@ import axios from "axios";
 
 // Axios instance with base URL setup
 let axiosAPIInstance: AxiosInstance = axios.create({
-  baseURL: `https://uhfsgsq2u6.execute-api.us-east-2.amazonaws.com/v1/`,
+  baseURL: `https://ub8x9415tg.execute-api.us-east-2.amazonaws.com/v1/`,
   timeout: 10000,
 });
 // Function to get the session token

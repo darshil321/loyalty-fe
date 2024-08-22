@@ -1,4 +1,3 @@
-import React from "react";
 import { Button } from "../ui/button";
 import { ViewEnum } from "../../lib/constants";
 import { ChevronRightIcon, InfoIcon, TicketIcon, WalletIcon } from "../ui/svg";
@@ -19,10 +18,10 @@ const InitialView = ({ userData, onNavigate, handleViewBalance }) => {
           }}
         >
           <span className="flex items-center space-x-2 text-black">
-            <WalletIcon className="h-5 w-5 text-[#d3c39b]" />
+            <WalletIcon className="h-5 w-5 text-[#CCD5AE]" />
             <span>My Balance</span>
           </span>
-          <ChevronRightIcon className="h-5 w-5" />
+          <ChevronRightIcon className="h-5 w-5 text-[#CCD5AE]" />
         </Button>
         <Button
           variant="outline"
@@ -30,10 +29,10 @@ const InitialView = ({ userData, onNavigate, handleViewBalance }) => {
           onClick={() => onNavigate(ViewEnum.REDEEM_POINTS_OPTIONS)}
         >
           <span className="flex items-center space-x-2 text-black">
-            <TicketIcon className="h-5 w-5 text-[#d3c39b]" />
+            <TicketIcon className="h-5 w-5 text-[#CCD5AE]" />
             <span>Redeem points</span>
           </span>
-          <ChevronRightIcon className="h-5 w-5" />
+          <ChevronRightIcon className="h-5 w-5 text-[#CCD5AE]" />
         </Button>
         <Button
           variant="outline"
@@ -41,10 +40,10 @@ const InitialView = ({ userData, onNavigate, handleViewBalance }) => {
           className="flex h-12 w-full items-center justify-between py-[16px]"
         >
           <span className="flex items-center space-x-2 text-black">
-            <TicketIcon className="h-5 w-5 text-[#d3c39b]" />
+            <TicketIcon className="h-5 w-5 text-[#CCD5AE]" />
             <span>Earn points</span>
           </span>
-          <ChevronRightIcon className="h-5 w-5" />
+          <ChevronRightIcon className="h-5 w-5 text-[#CCD5AE]" />
         </Button>
       </div>
     </div>
