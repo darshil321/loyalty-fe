@@ -21,6 +21,7 @@ export default function LoyaltyPopUpDialog() {
     events: [],
     tier: [],
   });
+  const [wallet, setWallet] = useState({});
 
   const [view, setView] = React.useState(ViewEnum.SIGN_UP);
 
@@ -44,6 +45,7 @@ export default function LoyaltyPopUpDialog() {
     setError(null);
     try {
       const walletResponse = await getCustomerWalletAPI();
+      setWallet(walletResponse.wallet);
       if (walletResponse && walletResponse.wallet) {
         setUserData({
           ...userData,
@@ -54,6 +56,7 @@ export default function LoyaltyPopUpDialog() {
           userId: walletResponse.wallet.userId,
         });
         setView(ViewEnum.INITIAL);
+        console.log("userDataofwallet", userData);
       }
     } catch (error) {
       setError("Failed to fetch wallet data");
@@ -142,10 +145,8 @@ export default function LoyaltyPopUpDialog() {
         return (
           <RedeemPointsView
             loading={loading}
-            error={error}
+            wallet={wallet}
             couponCode={couponCode}
-            createCouponData={createCouponData}
-            userData={userData}
             onBack={() => handleViewChange(ViewEnum.REDEEM_POINTS_OPTIONS)}
           />
         );

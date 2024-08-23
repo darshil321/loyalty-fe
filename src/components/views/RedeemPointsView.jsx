@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Button } from "../ui/button";
 
-const RedeemPointsView = ({ couponCode, onBack, loading }) => {
+const RedeemPointsView = ({ couponCode, onBack, loading, wallet }) => {
   const [copied, setCopied] = useState(false);
+  const { storeName } = wallet;
 
   const handleCopyCode = async () => {
     try {
@@ -11,6 +12,13 @@ const RedeemPointsView = ({ couponCode, onBack, loading }) => {
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
       console.error("Failed to copy text: ", err);
+    }
+  };
+  const handleApplyCode = async () => {
+    try {
+      window.location.href = `https://${storeName}/discount/${couponCode}`;
+    } catch (err) {
+      console.error("Failed to apply code: ", err);
     }
   };
 
@@ -42,6 +50,14 @@ const RedeemPointsView = ({ couponCode, onBack, loading }) => {
                 {copied ? "Copied!" : "Copy Code"}
               </Button>
             )}
+            <Button
+              variant="outline"
+              className="px-4 py-2 w-full text-black"
+              onClick={handleApplyCode}
+              disabled={!couponCode || loading}
+            >
+              Apply Coupon
+            </Button>
           </div>
         </div>
       </div>

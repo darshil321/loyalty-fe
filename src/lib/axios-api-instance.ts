@@ -7,6 +7,7 @@ import type {
   InternalAxiosRequestConfig,
 } from "axios";
 import axios from "axios";
+import { getUserTokenAPI } from "../api/auth/user-auth";
 // import { useAppSelector } from "@/store/hooks";
 
 // Axios instance with base URL setup
@@ -15,20 +16,49 @@ let axiosAPIInstance: AxiosInstance = axios.create({
   timeout: 10000,
 });
 // Function to get the session token
-const getSessionTokens = () => {
+export const getSessionTokens = async () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   // const shopify = useAppBridge();
   try {
-    const token = localStorage.getItem("devx_loyalty_access_token");
-    console.log("token inini", token);
+    const jwtLocalToken = localStorage.getItem("kp_jwt_token");
+    let _token: null | string = null;
 
-    if (token) {
-      return token;
+    if (jwtLocalToken) {
+      _token = `${jwtLocalToken}`;
+      console.log("token======", _token);
+
+      return _token;
     }
-    return null;
+
+    const jwtToken = await getUserTokenAPI();
+    console.log("jwtToken", jwtToken);
+    if (!jwtToken) throw new Error("Failed to authenticate.");
+
+    _token = `Bearer ${jwtToken}`;
+    localStorage.setItem("kp_jwt_token", _token);
+
+    return _token;
   } catch (error) {
     console.error("Failed to fetch session token", error);
     throw new Error("Failed to authenticate.");
+  }
+};
+
+export const updateAxiosHeaders = async () => {
+  try {
+    const jwtToken = await getUserTokenAPI();
+    if (!jwtToken) throw new Error("Failed to authenticate.");
+
+    localStorage.setItem("kp_jwt_token", jwtToken);
+
+    axiosAPIInstance.request({
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${jwtToken}`,
+      },
+    });
+  } catch (error) {
+    console.log("error", error);
   }
 };
 
@@ -57,7 +87,7 @@ axiosAPIInstance.interceptors.response.use(
 );
 
 // Custom methods for common HTTP verbs
-const request = (
+const request = async (
   method: Method,
   url: string,
   config?: AxiosRequestConfig
@@ -67,7 +97,7 @@ const request = (
     url,
     headers: {
       "Content-Type": "application/json",
-      Authorization: getSessionTokens(),
+      Authorization: await getSessionTokens(),
     },
     ...config,
   });
