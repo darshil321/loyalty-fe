@@ -1,4 +1,5 @@
 import { Button } from "../ui/button";
+import { LeftArrowIcon } from "../ui/svg";
 
 const BalanceView = ({ userData, onBack, isLoading }) => {
   const skeletonRows = Array(5).fill(null);
@@ -97,7 +98,7 @@ const BalanceView = ({ userData, onBack, isLoading }) => {
           className="w-full text-black"
           onClick={onBack}
         >
-          Go Back
+          <LeftArrowIcon className="h-4 w-5 text-black" /> Go Back
         </Button>
       </div>
     </div>

@@ -197,7 +197,8 @@ export default function LoyaltyPopUpDialog() {
             {renderView}
             <div className="rounded-b-lg bg-gray-100 p-4 text-center">
               <p className="text-sm text-gray-500">
-                We reward with <span className="text-pink-500">Loyal X</span>
+                We reward with{" "}
+                <span className="text-black-500 font-bold">DevX Loyalty</span>
               </p>
             </div>
           </div>

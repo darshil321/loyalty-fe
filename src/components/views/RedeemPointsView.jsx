@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button } from "../ui/button";
+import { LeftArrowIcon } from "../ui/svg";
 
 const RedeemPointsView = ({ couponCode, onBack, loading, wallet }) => {
   const [copied, setCopied] = useState(false);
@@ -72,7 +73,7 @@ const RedeemPointsView = ({ couponCode, onBack, loading, wallet }) => {
             className="w-full text-black"
             onClick={onBack}
           >
-            Go Back
+            <LeftArrowIcon className="h-4 w-5 text-black" /> Go Back
           </Button>
         </div>
       )}

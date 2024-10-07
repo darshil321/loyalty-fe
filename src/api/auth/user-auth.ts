@@ -13,7 +13,7 @@ export const getUserTokenAPI = async () => {
       `https://ub8x9415tg.execute-api.us-east-2.amazonaws.com/v1//user/auth`,
       {
         userId: userId,
-        storeName: "dhruv-parekh-demo.myshopify.com",
+        storeName: "er-loyalt.myshopify.com",
       }
     );
     const response = apiCall.data.token;

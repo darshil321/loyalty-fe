@@ -1,6 +1,7 @@
 import { Button } from "../ui/button";
 import { ViewEnum } from "../../lib/constants";
 import { createCouponAPI } from "../../api/coupon/create-coupon";
+import { LeftArrowIcon } from "../ui/svg";
 
 const RedeemPointsOptionsView = ({
   setLoading,
@@ -85,7 +86,7 @@ const RedeemPointsOptionsView = ({
           className="w-full text-black"
           onClick={onBack}
         >
-          Go Back
+          <LeftArrowIcon className="h-4 w-5 text-black" /> Go Back
         </Button>
       </div>
     </>

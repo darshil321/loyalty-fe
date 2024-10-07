@@ -1,4 +1,5 @@
 import { Button } from "../ui/button";
+import { LeftArrowIcon } from "../ui/svg";
 
 const EarnPointsView = ({ userData, onBack }) => {
   return (
@@ -48,7 +49,7 @@ const EarnPointsView = ({ userData, onBack }) => {
           className="w-full text-black"
           onClick={onBack}
         >
-          Go Back
+          <LeftArrowIcon className="h-4 w-5 text-black" /> Go Back
         </Button>
       </div>
     </>
